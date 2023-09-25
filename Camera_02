@@ -1,0 +1,28 @@
+#Steps to be followed:
+#1.Go to camera--go to video--click on screen 5000 times(aging of scripts)
+
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.237:5555"
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+receiver_device(text="Camera").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.camera2:id/mode_scroll_text", text="Video").click()
+time.sleep(2)
+# Define the number of clicks you want to perform
+num_clicks = 5000  # Click 5000 times
+
+# Perform clicks in a loop
+for _ in range(num_clicks):
+    receiver_device.click(0.775, 0.447)
+    print("Clicked on screen succesfully")
+    # You may want to introduce a delay between clicks if needed
+    time.sleep(1)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
