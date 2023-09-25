@@ -25,3 +25,4 @@ for _ in range(num_clicks):
     print("Clicked on screen succesfully")
     # You may want to introduce a delay between clicks if needed
     time.sleep(1)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
