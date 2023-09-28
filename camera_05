@@ -1,5 +1,5 @@
 #Steps to be followed:
-#1.Go to camera--go to more--slow motion--click on screen 5000 times(aging of scripts)
+#1.Go to camera--go to more--Pro--click on screen 5000 times(aging of scripts)
 
 # Import necessary modules
 import uiautomator2 as ui2
@@ -21,11 +21,13 @@ time.sleep(2)
 # Define the number of clicks you want to perform
 num_clicks = 5000  # Click 5000 times
 
-
-# Perform clicks in a loop
-for i in range(1, num_clicks + 1):
-    receiver_device.click(0.775, 0.447)
-    print(f"Clicked on screen successfully (Iteration {i})")
-    # You may want to introduce a delay between clicks if needed
-    time.sleep(1)
+if receiver_device(resourceId="com.android.camera2:id/selector_text", text="Pro").exists()
+  # Perform clicks in a loop
+  for i in range(1, num_clicks + 1):
+     receiver_device.click(0.775, 0.447)
+     print(f"Clicked on screen successfully (Iteration {i})")
+     # You may want to introduce a delay between clicks if needed
+     time.sleep(1)
+else():
+  print("f"Cannot be clicked on screen successfully (Iteration {i})")
 receiver_device(resourceId="com.android.systemui:id/center_group").click()
